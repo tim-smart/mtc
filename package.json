@@ -1,0 +1,29 @@
+{
+  "name": "@tim-smart/mtc",
+  "version": "1.0.0",
+  "description": "Transform stream that parses MTC messages and outputs SMPTE objects.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist/ && tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "timecode",
+    "midi",
+    "smpte",
+    "mtc"
+  ],
+  "author": "Tim Smart <tim@fostle.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^10.12.14",
+    "prettier": "^1.15.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@tim-smart/timecode": "^1.2.1"
+  }
+}
