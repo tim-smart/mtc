@@ -55,8 +55,11 @@ export class MTCStream extends Transform implements ITimecodeObject {
     };
   }
 
-  public getCurrentTimecode(): Timecode {
+  public get currentTimecode(): Timecode {
     return new Timecode(this, this.timecodeOptions);
+  }
+  public getCurrentTimecode(): Timecode {
+    return this.currentTimecode;
   }
 
   private applySongPosition(message: Buffer) {
@@ -72,7 +75,7 @@ export class MTCStream extends Transform implements ITimecodeObject {
   }
 
   private applyFullTime(message: Buffer) {
-    const originalString = this.toString();
+    const originalFrameCount = this.currentTimecode.frameCount();
 
     this.type = (message[5] >> 5) & 0x3;
 
@@ -81,7 +84,7 @@ export class MTCStream extends Transform implements ITimecodeObject {
     this.seconds = message[7];
     this.frames = message[8];
 
-    if (this.toString() !== originalString) {
+    if (this.currentTimecode.frameCount() !== originalFrameCount) {
       this.willPushTimecode();
     }
   }

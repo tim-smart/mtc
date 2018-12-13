@@ -1,6 +1,6 @@
 {
   "name": "@tim-smart/mtc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform stream that parses MTC messages and outputs SMPTE objects.",
   "main": "dist/index.js",
   "scripts": {
